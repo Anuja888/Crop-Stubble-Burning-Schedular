@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  body {
+    background-color: #080818;
+    color: #f1f5f9;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    overflow: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: #0f0f23; }
+  ::-webkit-scrollbar-thumb { 
+    background: #334155; 
+    border-radius: 999px; 
+  }
+  ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
+
+  /* Slider accent */
+  input[type='range'] { accent-color: #6366f1; cursor: pointer; }
+  
+  /* Table input fields */
+  input[type='text'], input[type='number'] {
+    background: transparent;
+    color: #f1f5f9;
+    border: none;
+    outline: none;
+    width: 100%;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+  }
+  
+  .btn-primary {
+    @apply px-4 py-2.5 rounded-lg font-bold text-sm
+           transition-all duration-150 cursor-pointer
+           disabled:opacity-40 disabled:cursor-not-allowed
+           active:scale-95;
+  }
+
+  .stat-value {
+    @apply text-3xl font-black tracking-tight;
+  }
+
+  .badge {
+    @apply text-xs font-bold px-2 py-0.5 rounded-full;
+  }
+}
